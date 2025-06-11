@@ -1,33 +1,28 @@
 
-# QuCreate Streamlit Lab
+# Introduction to Geopolitics - Globalization Impact Visualizer
 
-This repository contains a Streamlit application for demonstrating the features and capabilities of the QuCreate platform.
+This Streamlit application visualizes the impact of globalization on various countries using a synthetic dataset.
+It allows users to explore the relationship between trade volume, foreign investment, cultural exchange, and economic growth.
 
 ## Features
-- Streamlit sidebar with a company logo.
-- Template for easy development.
-- Placeholder for adding custom code.
 
-## Getting Started
+-   Interactive visualizations using Plotly
+-   Comparative analysis of different countries and metrics
+-   User-friendly interface with Streamlit
 
-### Prerequisites
-- Python 3.8 or later
-- Streamlit installed (see `requirements.txt`).
+## How to Run
 
-### Installation
-1. Clone the repository
-2. Install dependencies:
-`pip install -r requirements.txt`
+1.  Clone the repository.
+2.  Install the required packages: `pip install -r requirements.txt`
+3.  Run the application: `streamlit run app.py`
 
-### Running the Application
-1. Run the Streamlit app:
+## Docker
 
-### Development
-1. Modify the `app.py` file to add your custom code.
-2. Use the placeholder section (`# Code goes here`) to add new functionality.
+To run the application using Docker:
 
-### Deployment
-- Deploy your Streamlit app using Streamlit Sharing, Docker, or any other platform supporting Python web applications.
+1.  Build the Docker image: `docker build -t geopolitics-visualizer .`
+2.  Run the Docker container: `docker run -p 8501:8501 geopolitics-visualizer`
 
 ## License
-© 2025 QuantUniversity. All Rights Reserved. Educational use only. For licensing details, please contact QuantUniversity.
+
+© 2025 QuantUniversity. All Rights Reserved.
