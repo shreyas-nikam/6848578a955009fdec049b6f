@@ -4,28 +4,28 @@ import pandas as pd
 import plotly.express as px
 
 def run_global_map():
-    st.markdown("## Global Map Visualization")
-    # Synthetic Data for Map
+    # Sample data with country codes
     data = {
-        'Country': ['USA', 'China', 'Germany', 'Japan', 'India'],
-        'Trade Volume': [1500, 1800, 1200, 1000, 900],
-        'Foreign Investment': [800, 700, 600, 500, 400],
-        'Cultural Exchange': [70, 60, 80, 75, 50],
-        'Economic Growth': [2.5, 6.0, 1.5, 1.0, 7.0]
+        'Country': ['USA', 'China', 'Germany', 'Japan', 'UK', 'India', 'France', 'Brazil', 'Canada', 'Italy'],
+        'Trade Volume': [1500, 1800, 1200, 900, 800, 700, 600, 500, 400, 300],
+        'iso_alpha': ['USA', 'CHN', 'DEU', 'JPN', 'GBR', 'IND', 'FRA', 'BRA', 'CAN', 'ITA']
     }
     df = pd.DataFrame(data)
     
-    metric = st.selectbox("Select Metric to Display", ['Trade Volume', 'Foreign Investment', 'Cultural Exchange', 'Economic Growth'])
+    # Metric selection
+    metric = st.sidebar.selectbox("Select Metric for Global Map", options=['Trade Volume']) # Can add other metrics after populating data
     
-    fig = px.choropleth(
-        df,
-        locations='Country',
-        locationmode='country names',
-        color=metric,
-        color_continuous_scale=px.colors.sequential.Plasma,
-        title=f"Global Distribution of {metric}"
-    )
+    # Create choropleth map
+    fig = px.choropleth(df,
+                        locations="iso_alpha",
+                        color=metric,
+                        hover_name="Country",
+                        color_continuous_scale=px.colors.sequential.Plasma,
+                        title=f'Global {metric}')
+    
     st.plotly_chart(fig, use_container_width=True)
-
-if __name__ == "__main__":
-    run_global_map()
+    
+    st.markdown("""
+    This page displays a global map visualizing the selected metric. 
+    The choropleth map illustrates the distribution of the metric across different countries, providing a global perspective.
+    """)
